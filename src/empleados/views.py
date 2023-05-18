@@ -7,7 +7,7 @@ from django.contrib import messages
 
 # Create your views here.
 
-def activar_empleado(request):
+def nuevo_empleado(request):
     
     if request.method == "POST":
         
@@ -20,16 +20,16 @@ def activar_empleado(request):
                                                      apellido = cd['apellido'],
                                                      numero_legajo = cd ['numero_legajo'])
             messages.success(request, "Empleado agregado con exito")
-            return HttpResponseRedirect ("/empleados/activar")
+            return HttpResponseRedirect ("/empleados/nuevo")
         
     else:
         formulario = FormularioEmpleado()
-    return render(request, 'empleados/activar.html',{"form":formulario})
+    return render(request, 'empleados/nuevo.html',{"form":formulario})
 
-def detalle_empleado(request, pk):
-    mi_empleado = get_object_or_404(Empleado, id=pk)
-    html = "<html><body><h1>Listado de empleados</h1>"
-    html += f"<p>{mi_empleado}</p>"
-    html += "</body></html>"
-    
-    return HttpResponse(html)
+#def detalle_empleado(request, pk):
+#   mi_empleado = get_object_or_404(Empleado, id=pk)
+#   html = "<html><body><h1>Listado de empleados</h1>"
+#   html += f"<p>{mi_empleado}</p>"
+#   html += "</body></html>"
+#   
+#   return HttpResponse(html)
