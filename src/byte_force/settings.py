@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #APLICACIONES PROPIAS
     'reservas',
+    'empleados'
 ]
 
 MIDDLEWARE = [
@@ -67,6 +68,12 @@ TEMPLATES = [
             ],
         },
     },
+    
+    {
+	    "BACKEND": "django.template.backends.jinja2.Jinja2",
+	    "DIRS": [BASE_DIR / 'jinjatemplates'],
+	    "APP_DIRS": True,
+    }
 ]
 
 WSGI_APPLICATION = 'byte_force.wsgi.application'
