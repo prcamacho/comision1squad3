@@ -33,3 +33,13 @@ def nuevo_empleado(request):
 #   html += "</body></html>"
 #   
 #   return HttpResponse(html)
+
+
+def desactivar_empleado(request,pk):
+    empleado=get_object_or_404(Empleado,id=pk)
+    empleado.activo=False
+    html = "<html><body><h1>Empleado desactivado</h1>"
+    html += f"<p>{empleado}</p>"
+    html += "</body></html>"
+    empleado.save()
+    return HttpResponse(html)
