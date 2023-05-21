@@ -10,6 +10,6 @@ class Empleado (models.Model):
     numero_legajo = models.IntegerField()
     activo = models.BooleanField(default=True)
     
-    def __str__(self):
-        return F"{self.nombre}, {self.apellido}, {self.numero_legajo}"
+    #def __str__(self):
+    #    return F"{self.nombre}, {self.apellido}, {self.numero_legajo}"
     
