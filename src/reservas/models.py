@@ -13,4 +13,4 @@ class ReservaServicio (models.Model):
     responsable=models.ForeignKey(Coordinador,on_delete=models.DO_NOTHING)
     empleado=models.ForeignKey(Empleado,on_delete=models.DO_NOTHING)
     servicio=models.ForeignKey(Servicio,on_delete=models.DO_NOTHING)
-    precio=models.DecimalField(decimal_places=2)
+    precio=models.DecimalField(decimal_places=2,max_digits=10)
