@@ -2,7 +2,7 @@
 # from clientes.models import Cliente
 # from coordinador.models import Coordinador
 # from empleados.models import Empleado
-# from servicios.models import Servicio
+# from servicio.models import Servicio
 # import datetime
 # # Create your models here.
 

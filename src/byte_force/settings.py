@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     #APLICACIONES PROPIAS
     'reservas',
     'empleados',
-    'clientes'
+    'clientes',
+    'coordinador',
 ]
 
 MIDDLEWARE = [
