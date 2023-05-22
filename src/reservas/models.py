@@ -9,8 +9,8 @@ from servicio.models import Servicio
 class ReservaServicio (models.Model):
     fecha_creacion=models.DateTimeField(auto_now_add=True)
     fecha_reserva=models.DateTimeField()
-    cliente=models.ForeignKey(Cliente)
-    responsable=models.ForeignKey(Coordinador)
-    empleado=models.ForeignKey(Empleado)
-    servicio=models.ForeignKey(Servicio)
+    cliente=models.ForeignKey(Cliente,on_delete=models.DO_NOTHING)
+    responsable=models.ForeignKey(Coordinador,on_delete=models.DO_NOTHING)
+    empleado=models.ForeignKey(Empleado,on_delete=models.DO_NOTHING)
+    servicio=models.ForeignKey(Servicio,on_delete=models.DO_NOTHING)
     precio=models.DecimalField(decimal_places=2)
