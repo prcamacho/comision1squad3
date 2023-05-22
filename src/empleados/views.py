@@ -47,8 +47,4 @@ def desactivar_empleado(request,pk):
 def listado_empleados(request):
     empleados=Empleado.objects.all()
     return render(request,'empleados/listado_empleados.html',{'empleados':empleados})
-    html = "<html><body><h1>Empleado desactivado</h1>"
-    for empleado in empleados:
-            html += f"<p>{empleado}</p>"
-    html += "</body></html>"
-    return HttpResponse(html)
+    
