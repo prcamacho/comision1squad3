@@ -46,3 +46,18 @@ def activar_empleado(request, id):
     else:
         messages.success(request, "Empleado ya esta activo")
     return render(request, 'empleados/activar.html')
+
+
+def desactivar_empleado(request,pk):
+    empleado=get_object_or_404(Empleado,id=pk)
+    empleado.activo=False
+    html = "<html><body><h1>Empleado desactivado</h1>"
+    html += f"<p>{empleado}</p>"
+    html += "</body></html>"
+    empleado.save()
+    return HttpResponse(html)
+
+def listado_empleados(request):
+    empleados=Empleado.objects.all()
+    return render(request,'empleados/listado_empleados.html',{'empleados':empleados})
+    
