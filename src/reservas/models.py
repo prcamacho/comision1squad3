@@ -7,7 +7,7 @@
 # # Create your models here.
 
 # class ReservaServicio (models.Model):
-#     fecha_creacion=models.DateTimeField(auto_now_add=datetime.datetime.now())
+#     fecha_creacion=models.DateTimeField(auto_now_add=True)
 #     fecha_reserva=models.DateTimeField()
 #     cliente=models.ForeignKey(Cliente)
 #     responsable=models.ForeignKey(Coordinador)
