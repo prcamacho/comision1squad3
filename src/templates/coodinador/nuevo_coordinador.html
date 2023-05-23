@@ -1,0 +1,10 @@
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Guardar</button>
+
+    {% for msg in messages %}
+        {{msg}}
+    {% endfor %}
+
+</form>

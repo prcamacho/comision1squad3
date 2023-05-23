@@ -1,6 +1,6 @@
 from django import forms
 from .models import Empleado
-from django.forms import ModelForm
+#from django.forms import ModelForm
 #Creacion de formulario 
 class FormularioEmpleado(forms.Form):
     nombre = forms.CharField(max_length=20)
