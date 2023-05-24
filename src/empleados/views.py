@@ -41,21 +41,12 @@ def modificar_empleado (request, id):
 def activar_empleado(request, id):
     empleado = get_object_or_404(Empleado, id=id)
     if empleado.activo == False:
-<<<<<<< HEAD
-        empleado.activo = True
-        messages.success(request, "Empleado activado con exito")
-    else:
-        messages.success(request, "Empleado ya esta activo")
-    return render(request, 'empleados/activar.html')
-
-=======
         empleado.activo=True
         empleado.save()
         #messages.success(request, "Empleado activado con exito")
     #else:
         #messages.success(request, "Empleado ya esta activo")
     return HttpResponseRedirect ("/empleados/listado")
->>>>>>> rama_tmp
 
 def desactivar_empleado(request,pk):
     empleado=get_object_or_404(Empleado,id=pk)

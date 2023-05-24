@@ -1,7 +1,8 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from django.urls import reverse
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Coordinador
+from .forms import EditarFormCoordinador
 
 # Create your views here.
 
@@ -15,3 +16,14 @@ def desactivar_coordinador(request,id):
 def listado_coodinadores(request):
     coordinadores=Coordinador.objects.all()
     return render(request,'coordinadores/listado_coordinadores.html',{'coodinadores':coordinadores})
+
+def modificar_coordinador (request, id):
+    coordinador = get_object_or_404(Coordinador, id=id)
+    if request.method == 'POST':
+        formulario = EditarFormCoordinador(request.POST, instance=coordinador)
+        if formulario.is_valid():
+            formulario.save()
+            return HttpResponseRedirect("/coordinador/listado")
+    else:
+        formulario = EditarFormCoordinador(instance=coordinador)
+    return render(request, 'coodinador/nuevo_coordinador.html', {'form': formulario}) 

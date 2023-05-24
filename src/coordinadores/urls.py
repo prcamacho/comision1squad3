@@ -6,6 +6,6 @@ app_name = "coordinadores"
 
 
 urlpatterns = [
-    path('coordinadores/desactivar/<int: id>',desactivar_coordinador,name='desactivar_coordinador'),
+    path('coordinadores/desactivar/<int:id>',desactivar_coordinador,name='desactivar_coordinador'),
     path('listado/',listado_coodinadores,name='listado_coodinadores'),
 ]
