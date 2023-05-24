@@ -21,7 +21,7 @@ def nuevo_empleado(request):
                                                      apellido = cd['apellido'],
                                                      numero_legajo = cd ['numero_legajo'])
             messages.success(request, "Empleado agregado con exito")
-            return HttpResponseRedirect ("/empleados/nuevo")
+            return HttpResponseRedirect ("/empleados/listado")
         
     else:
         formulario = FormularioEmpleado()
@@ -33,31 +33,41 @@ def modificar_empleado (request, id):
         formulario = EditarFormularioEmpleado(request.POST, instance=empleado)
         if formulario.is_valid():
             formulario.save()
-            return HttpResponseRedirect(f"/empleados/nuevo")
+            return HttpResponseRedirect("/empleados/listado")
     else:
         formulario = EditarFormularioEmpleado(instance=empleado)
-    return render(request, 'empleados/nuevo.html', {'form': formulario}) 
+        return render(request, 'empleados/nuevo.html', {'form': formulario}) 
     
 def activar_empleado(request, id):
     empleado = get_object_or_404(Empleado, id=id)
     if empleado.activo == False:
+<<<<<<< HEAD
         empleado.activo = True
         messages.success(request, "Empleado activado con exito")
     else:
         messages.success(request, "Empleado ya esta activo")
     return render(request, 'empleados/activar.html')
 
+=======
+        empleado.activo=True
+        empleado.save()
+        #messages.success(request, "Empleado activado con exito")
+    #else:
+        #messages.success(request, "Empleado ya esta activo")
+    return HttpResponseRedirect ("/empleados/listado")
+>>>>>>> rama_tmp
 
 def desactivar_empleado(request,pk):
     empleado=get_object_or_404(Empleado,id=pk)
     empleado.activo=False
-    html = "<html><body><h1>Empleado desactivado</h1>"
-    html += f"<p>{empleado}</p>"
-    html += "</body></html>"
+    #html = "<html><body><h1>Empleado desactivado</h1>"
+    #html += f"<p>{empleado}</p>"
+    #html += "</body></html>"
     empleado.save()
-    return HttpResponse(html)
+    return HttpResponseRedirect ("/empleados/listado")
 
 def listado_empleados(request):
     empleados=Empleado.objects.all()
     return render(request,'empleados/listado_empleados.html',{'empleados':empleados})
+
     
