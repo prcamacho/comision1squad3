@@ -4,4 +4,4 @@ from .models import Coordinador
 
 def listado_coodinadores(request):
     coordinadores=Coordinador.objects.all()
-    return render(request,'coordinador/listado_coordinadores.html',{'coodinadores':coordinadores})
+    return render(request,'coordinadores/listado_coordinadores.html',{'coodinadores':coordinadores})
