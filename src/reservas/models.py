@@ -1,6 +1,6 @@
 from django.db import models
 from clientes.models import Cliente
-from coordinador.models import Coordinador
+from coordinadores.models import Coordinador
 from empleados.models import Empleado
 #from servicio.models import Servicio
 
