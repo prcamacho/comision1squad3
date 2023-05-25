@@ -4,16 +4,27 @@
 
 <table>
     <tr>
-        <td>id</td>
-        <td>nombre</td>
-        <td>apellido</td>
+        <td><h2>ID</h2></td>
+        <td><h2>Nombre</h2></td>
+        <td><h2>Apellido</h2></td>
+        <td><h2>DNI</h2></td>
     </tr>
 
+    {% for coordinador in coordinadores %}
     <tr>
-        
+        <th>{{coordinador.id}} </th>
+        <th>
+            {{coordinador.nombre}}
+        </th>
+        <th>
+            {{coordinador.apellido}}
+        </th>
+        <th>
+            {{coordinador.numero_documento}}
+        </th>
     </tr>
 
-    <tr></tr>
+    {%endfor%}
 </table>
 
 {% endblock contenido %}

@@ -22,7 +22,7 @@ def desactivar_coordinador(request,id):
 
 def listado_coodinadores(request):
     coordinadores=Coordinador.objects.all()
-    return render(request,'coordinadores/listado.html',{'coodinadores':coordinadores})
+    return render(request,'coordinadores/listado.html',{'coordinadores':coordinadores})
 
 def nuevo_coordinador(request):
     form=FormCoordinador()
@@ -37,13 +37,13 @@ def nuevo_coordinador(request):
                                                          numero_documento=cd['numero_documento'],
                                                          )
             mensaje="Coordinador Creado con exito"
-        else:
-            form=FormCoordinador()
-        
-        return render(request,'coordinadores/crear.hmtl',{'form':form,
-                                                                      'mensaje':mensaje,
-                                                                      'coordinador_nuevo':coordinador_nuevo,
-                                                                      })
+    else:
+        form=FormCoordinador()
+    
+    return render(request,'coordinadores/crear.html',{'form':form,
+                                                    'mensaje':mensaje,
+                                                    'coordinador_nuevo':coordinador_nuevo,
+                                                    })
             
 
 

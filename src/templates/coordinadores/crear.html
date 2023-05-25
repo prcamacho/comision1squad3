@@ -1,14 +1,19 @@
 {% extends 'base/base.html' %}
 
 {% block contenido %}
-<form action="" method="POST">
+{%if mensaje %}
+<h3> {{coordinador_nuevo}} {{mensaje}} </h3>
+{%endif%}
+<form method="POST" action="" >
     {% csrf_token %}
-    {{ form }}
+    {{ form.as_p }}
     <button type="submit">Guardar</button>
 
+    {%if messages%}
     {% for msg in messages %}
         {{msg}}
     {% endfor %}
+    {%endif%}
 
 </form>
 {% endblock contenido %}

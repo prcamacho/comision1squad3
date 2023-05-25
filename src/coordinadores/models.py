@@ -9,3 +9,6 @@ class Coordinador(models.Model):
     numero_documento=models.PositiveBigIntegerField()
     fecha_alta=models.DateTimeField(default=datetime.now())#auto_now_add
     activo=models.BooleanField(default=True)
+
+    def __str__(self):
+        return f"{self.apellido.upper()}, {self.nombre.title()} [DNI: {self.numero_documento}]"
