@@ -6,6 +6,13 @@ from .forms import EditarFormCoordinador
 
 # Create your views here.
 
+def activar_coordinador(request,id):
+    coordinador_a_desactivar=get_object_or_404(Coordinador,id=id)
+    coordinador_a_desactivar.activo=True
+    coordinador_a_desactivar.save
+    mensaje=f"Coordinador {coordinador_a_desactivar.nombre} activado"
+    return render(request,'coordinadores/activar.html',{'mensaje':mensaje})
+
 def desactivar_coordinador(request,id):
     coordinador_a_desactivar=get_object_or_404(Coordinador,id=id)
     coordinador_a_desactivar.activo=False
