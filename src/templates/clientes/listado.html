@@ -1,11 +1,12 @@
 {% extends 'base/base.html' %}
 
 {% block contenido %}
-
+{# <a href="{% url 'clientes:nuevo_cliente' %}">Nuevo Cliente</a> //descomentar cuando este hecha la view #}
 <h1>Lista de Clientes</h1>
     <table class="table">
       <thead>
         <tr>
+          <th scope="col">ID</th>
           <th scope="col">Nombre</th>
           <th scope="col">Apellido</th>
         </tr>
@@ -13,8 +14,15 @@
       <tbody>
         {% for cliente in clientes %}
         <tr>
-          <th scope="row">{{cliente.nombre}}</th>
-          <td>{{cliente.apellido}}</td>
+          <th scope="row">{{cliente.id}}</th>
+          <th>{{cliente.nombre}} </th>
+          <th>{{cliente.apellido}}</th>
+          <th>{%if cliente.activo %}
+            <a href="{% url 'clientes:desactivar_cliente' cliente.id %}">Desactivar</a>
+            {% else %}
+            {# <a href="{% url 'clientes:activar_cliente' cliente.id %}">Activar</a> //descomentar cuando este hecha la view #}
+            {% endif %}
+            <a href="{% url 'clientes:modificar_cliente' cliente.id %}">Modificar</a></th>
         </tr>
         {% endfor %}
       </tbody>
