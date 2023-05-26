@@ -2,6 +2,11 @@
 
 {% block contenido %}
 
+{% if mensaje %}
+{{mensaje}}
+{% endif %}
+
+<a href="{% url 'coordinadores:nuevo_coordinador' %}">Nuevo Coordinador</a>
 <table>
     <tr>
         <td><h2>ID</h2></td>
@@ -13,15 +18,16 @@
     {% for coordinador in coordinadores %}
     <tr>
         <th>{{coordinador.id}} </th>
+        <th>{{coordinador.nombre}}</th>
+        <th>{{coordinador.apellido}}</th>
+        <th>{{coordinador.numero_documento}}</th>
         <th>
-            {{coordinador.nombre}}
-        </th>
-        <th>
-            {{coordinador.apellido}}
-        </th>
-        <th>
-            {{coordinador.numero_documento}}
-        </th>
+            {%if coordinador.activo %}
+            <a href="{% url 'coordinadores:desactivar_coordinador' coordinador.id %}">Desactivar</a>
+            {% else %}
+            <a href="{% url 'coordinadores:activar_coordinador' coordinador.id %}">Activar</a>
+            {% endif %}
+            <a href="{% url 'coordinadores:modificar_coordinador' coordinador.id %}">Modificar</a></th>
     </tr>
 
     {%endfor%}

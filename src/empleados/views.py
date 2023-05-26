@@ -59,6 +59,6 @@ def desactivar_empleado(request,pk):
 
 def listado_empleados(request):
     empleados=Empleado.objects.all()
-    return render(request,'empleados/listado_empleados.html',{'empleados':empleados})
+    return render(request,'empleados/listado.html',{'empleados':empleados})
 
     

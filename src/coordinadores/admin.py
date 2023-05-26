@@ -3,7 +3,7 @@ from .models import Coordinador
 
 # Register your models here.
 class Coordinadoradmin(admin.ModelAdmin):
-    list_display=('nombre','apellido')
+    list_display=('nombre','apellido','activo')
     search_fields=('nombre',)
     list_filter=('activo',)
 

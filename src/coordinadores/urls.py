@@ -8,6 +8,7 @@ app_name = "coordinadores"
 urlpatterns = [
     path('activar/<int:id>/',activar_coordinador,name='activar_coordinador'),
     path('desactivar/<int:id>/',desactivar_coordinador,name='desactivar_coordinador'),
-    path('listado/',listado_coodinadores,name='listado_coodinadores'),
+    path('listado/',listado_coordinadores,name='listado_coordinadores'),
     path('nuevo/',nuevo_coordinador,name='nuevo_coordinador'),
+    path('modificar/<int:id>',modificar_coordinador,name='modificar_coordinador'),
 ]

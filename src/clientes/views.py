@@ -7,7 +7,7 @@ from .forms import FormCliente, EditarFormCliente
 def desactivar_cliente(request,id):
     cliente_a_desactivar=get_object_or_404(Cliente,id=id)
     cliente_a_desactivar.activo=False
-    cliente_a_desactivar.save
+    cliente_a_desactivar.save()
     mensaje=f"Cliente {cliente_a_desactivar.nombre} desactivado"
     return render(request,'clientes/desactivar.html',{'mensaje':mensaje})
 
@@ -21,7 +21,7 @@ def modificar_cliente(request,id):
         formulario = EditarFormCliente(request.POST, instance=cliente)
         if formulario.is_valid():
             formulario.save()
-            return HttpResponseRedirect("/cliente/listado")
+            return HttpResponseRedirect("/clientes/listado")
     else:
         formulario = EditarFormCliente(instance=cliente)
-    return render(request, 'cliente/crear.html', {'form': formulario}) 
+    return render(request, 'clientes/crear.html', {'form': formulario}) 

@@ -9,18 +9,16 @@ from .forms import EditarFormCoordinador, FormCoordinador
 def activar_coordinador(request,id):
     coordinador_a_desactivar=get_object_or_404(Coordinador,id=id)
     coordinador_a_desactivar.activo=True
-    coordinador_a_desactivar.save
-    mensaje=f"Coordinador {coordinador_a_desactivar.nombre} activado"
-    return render(request,'coordinadores/activar.html',{'mensaje':mensaje})
+    coordinador_a_desactivar.save()
+    return redirect(reverse('coordinadores:listado_coordinadores'))
 
 def desactivar_coordinador(request,id):
     coordinador_a_desactivar=get_object_or_404(Coordinador,id=id)
     coordinador_a_desactivar.activo=False
-    coordinador_a_desactivar.save
-    mensaje=f"Coordinador {coordinador_a_desactivar.nombre} desactivado"
-    return render(request,'coordinadores/desactivar.html',{'mensaje':mensaje})
+    coordinador_a_desactivar.save()
+    return redirect(reverse('coordinadores:listado_coordinadores'))
 
-def listado_coodinadores(request):
+def listado_coordinadores(request):
     coordinadores=Coordinador.objects.all()
     return render(request,'coordinadores/listado.html',{'coordinadores':coordinadores})
 
@@ -52,13 +50,13 @@ def nuevo_coordinador(request):
 
 
 
-def modificar_coordinador (request, id):
+def modificar_coordinador(request, id):
     coordinador = get_object_or_404(Coordinador, id=id)
     if request.method == 'POST':
         formulario = EditarFormCoordinador(request.POST, instance=coordinador)
         if formulario.is_valid():
             formulario.save()
-            return HttpResponseRedirect("/coordinador/listado")
+            return HttpResponseRedirect("/coordinadores/listado")
     else:
         formulario = EditarFormCoordinador(instance=coordinador)
-    return render(request, 'coodinador/crear.html', {'form': formulario}) 
+    return render(request, 'coordinadores/crear.html', {'form': formulario}) 
