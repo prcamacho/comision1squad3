@@ -20,7 +20,7 @@
           <th>{%if cliente.activo %}
             <a href="{% url 'clientes:desactivar_cliente' cliente.id %}">Desactivar</a>
             {% else %}
-            {# <a href="{% url 'clientes:activar_cliente' cliente.id %}">Activar</a> //descomentar cuando este hecha la view #}
+            <a href="{% url 'clientes:activar_cliente' cliente.id %}">Activar</a>
             {% endif %}
             <a href="{% url 'clientes:modificar_cliente' cliente.id %}">Modificar</a></th>
         </tr>

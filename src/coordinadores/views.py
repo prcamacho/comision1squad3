@@ -44,12 +44,6 @@ def nuevo_coordinador(request):
                                                     })
             
 
-
-
-    
-
-
-
 def modificar_coordinador(request, id):
     coordinador = get_object_or_404(Coordinador, id=id)
     if request.method == 'POST':
@@ -59,4 +53,4 @@ def modificar_coordinador(request, id):
             return HttpResponseRedirect("/coordinadores/listado")
     else:
         formulario = EditarFormCoordinador(instance=coordinador)
-    return render(request, 'coordinadores/crear.html', {'form': formulario}) 
+    return render(request, 'coordinadores/editar.html', {'form': formulario}) 

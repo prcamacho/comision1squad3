@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+
+{% block contenido %}
+{%if mensaje %}
+<h3> {{coordinador_nuevo}} {{mensaje}} </h3>
+{%endif%}
+<form method="POST" action="" >
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+
+    {%if messages%}
+    {% for msg in messages %}
+        {{msg}}
+    {% endfor %}
+    {%endif%}
+
+</form>
+
+<a href="{% url 'coordinadores:listado_coordinadores' %}">Listado</a>
+{% endblock contenido %}
