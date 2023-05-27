@@ -5,6 +5,27 @@ from .models import Cliente
 from .forms import FormCliente, EditarFormCliente
 
 # Create your views here.
+def nuevo_cliente(request):
+    form=FormCliente()
+    mensaje=None
+    cliente_nuevo=None
+    if request.method=='POST':
+        form=FormCliente(request.POST)
+        if form.is_valid():
+            cd=form.cleaned_data
+            cliente_nuevo=Cliente.objects.create(nombre=cd['nombre'],
+                                                        apellido=cd['apellido']
+                                                        )
+            return HttpResponseRedirect("/clientes/listado")
+            
+    else:
+        form=FormCliente()
+    
+    return render(request,'clientes/crear.html',{'form':form,
+                                                    'mensaje':mensaje,
+                                                    'cliente_nuevo':cliente_nuevo,
+                                                    })
+
 def desactivar_cliente(request,id):
     cliente_a_desactivar=get_object_or_404(Cliente,id=id)
     cliente_a_desactivar.activo=False
@@ -26,4 +47,4 @@ def modificar_cliente(request,id):
             return HttpResponseRedirect("/clientes/listado")
     else:
         formulario = EditarFormCliente(instance=cliente)
-    return render(request, 'clientes/crear.html', {'form': formulario}) 
+    return render(request, 'clientes/editar.html', {'form': formulario}) 
