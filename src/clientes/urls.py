@@ -6,6 +6,7 @@ from .views import *
 app_name = "clientes"
 
 urlpatterns = [
+    path('',listado_clientes,name='listado_clientes'),
     path('nuevo/',nuevo_cliente,name='nuevo_cliente'),
     path('desactivar/<int:id>/',desactivar_cliente,name='desactivar_cliente'),
     path('activar/<int:id>/',activar_cliente,name='activar_cliente'),

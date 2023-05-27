@@ -15,3 +15,5 @@ class ReservaServicio (models.Model):
     empleado=models.ForeignKey(Empleado,on_delete=models.DO_NOTHING)
     servicio=models.ForeignKey(Servicio,on_delete=models.DO_NOTHING)
     precio=models.DecimalField(decimal_places=2, max_digits=10)
+
+

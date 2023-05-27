@@ -5,7 +5,7 @@
 {{mensaje}}
 {% endif %}
 <h1>Lista de Empleados</h1>
-<div><a href="/empleados/nuevo">Nuevo</a></div>
+<a href="{% url 'empleados:nuevo_empleado' %}">Nuevo Empleado</a>
     <table class="table">
       <thead>
         <tr>
@@ -24,10 +24,21 @@
           <td>{{empleado.nombre}}</td>
           <td>{{empleado.apellido}}</td>
           <td>{{empleado.numero_legajo}}</td>
-          <td>{{empleado.activo}}</td>
-          <td><a href="/empleados/modificar/{{empleado.pk}}"><div style="height:100%;width:100%">Modificar</div></a></td>
-          <td><a href="/empleados/activar/{{empleado.pk}}"><div style="height:100%;width:100%">Activar</div></a></td>
-          <td><a href="/empleados/desactivar/{{empleado.pk}}"><div style="height:100%;width:100%">Desactivar</div></a></td>
+          {% if empleado.activo %}
+          <td>Si</td>
+          {% else %}
+          <td>No</td>
+          {% endif %}
+          
+          <td>
+          {% if empleado.activo %}
+          <a href="{% url 'empleados:desactivar_empleado' empleado.id %}">Desactivar</a>
+          {% else %}
+          <a href="{% url 'empleados:activar_empleado' empleado.id %}">Activar</a>
+          {% endif %}
+          <a href="{% url 'empleados:modificar_empleado' empleado.id %}">Modificar</a></th>
+          </td> 
+          
         </tr>
         {% endfor %}
     
