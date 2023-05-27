@@ -51,9 +51,6 @@ def activar_empleado(request, id):
 def desactivar_empleado(request,pk):
     empleado=get_object_or_404(Empleado,id=pk)
     empleado.activo=False
-    #html = "<html><body><h1>Empleado desactivado</h1>"
-    #html += f"<p>{empleado}</p>"
-    #html += "</body></html>"
     empleado.save()
     return HttpResponseRedirect ("/empleados/listado")
 

@@ -1,17 +1,9 @@
 {% extends 'base/base.html' %}
-
 {% block contenido %}
-
 <form action="" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Guardar</button>
-
-    {% for msg in messages %}
-        {{msg}}
-    {% endfor %}
-
 </form>
-
 <a href="{% url 'empleados:listado_empleados' %}">Listado</a>
 {% endblock contenido %}

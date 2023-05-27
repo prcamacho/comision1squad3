@@ -24,8 +24,6 @@ def desactivar_cliente(request,id):
     cliente_a_desactivar=get_object_or_404(Cliente,id=id)
     cliente_a_desactivar.activo=False
     cliente_a_desactivar.save()
-    #mensaje=f"Cliente {cliente_a_desactivar.nombre} desactivado"
-    #return render(request,'clientes/desactivar.html',{'mensaje':mensaje})
     return redirect(reverse('clientes:listado_clientes'))
 
 def activar_cliente(request,id):

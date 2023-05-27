@@ -1,9 +1,6 @@
 {% extends 'base/base.html' %}
 
 {% block contenido %}
-{% if mensaje%}
-{{mensaje}}
-{% endif %}
 <h1>Lista de Empleados</h1>
 <a href="{% url 'empleados:nuevo_empleado' %}">Nuevo Empleado</a>
     <table class="table">
@@ -19,7 +16,6 @@
       <tbody>
         <tr>
         {% for empleado in empleados %}
-        
           <th scope="row">{{empleado.id}}</th>
           <td>{{empleado.nombre}}</td>
           <td>{{empleado.apellido}}</td>
@@ -29,7 +25,6 @@
           {% else %}
           <td>No</td>
           {% endif %}
-          
           <td>
           {% if empleado.activo %}
           <a href="{% url 'empleados:desactivar_empleado' empleado.id %}">Desactivar</a>
@@ -41,8 +36,6 @@
           
         </tr>
         {% endfor %}
-    
       </tbody>
     </table>
-
 {% endblock contenido %}
