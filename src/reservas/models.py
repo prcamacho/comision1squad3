@@ -6,6 +6,11 @@ from empleados.models import Empleado
 
 # Create your models here.
 
+class Servicio(models.Model):
+    nombre = models.CharField(max_length=30)
+    descripcion = models.TextField(blank=True, null=True)
+    activo = models.BooleanField(default=True)
+
 class ReservaServicio (models.Model):
     fecha_creacion=models.DateTimeField(auto_now_add=True)
     fecha_reserva=models.DateTimeField()

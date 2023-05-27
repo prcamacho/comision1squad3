@@ -17,6 +17,28 @@ def listado_clientes(request):
     clientes=Cliente.objects.all()
     return render(request,'clientes/listado.html',{'clientes':clientes})
 
+def nuevo_cliente(request):
+    form=FormCliente()
+    mensaje=None
+    cliente_nuevo=None
+    if request.method=='POST':
+        form=FormCliente(request.POST)
+        if form.is_valid():
+            cd=form.cleaned_data
+            cliente_nuevo=Cliente.objects.create(nombre=cd['nombre'],
+                                                         apellido=cd['apellido'],
+                                                         numero_documento=cd['numero_documento'],
+                                                         )
+            mensaje="Cliente Creado con exito"
+    else:
+        form=FormCliente()
+    
+    return render(request,'clientes/crear.html',{'form':form,
+                                                    'mensaje':mensaje,
+                                                    'cliente_nuevo':cliente_nuevo,
+                                                    })
+
+
 def modificar_cliente(request,id):
     cliente = get_object_or_404(Cliente, id=id)
     if request.method == 'POST':
