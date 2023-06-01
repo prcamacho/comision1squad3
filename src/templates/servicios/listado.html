@@ -1,17 +1,30 @@
-{% extends 'base/base.html' %}
+{% comment %} {% extends 'base/base.html' %}
+
 {% block contenido %}
 
+<a href="{% url 'servicios:nuevo_servicio' %}">Nuevo Servicio</a>
+<table>
+    <tr>
+        <td><h2>ID</h2></td>
+        <td><h2>Nombre</h2></td>
+        <td><h2>descripcion</h2></td>
+    </tr>
 
+    {% for servicio in servicios %}
+    <tr>
+        <th>{{servico.id}} </th>
+        <th>{{servicio.nombre}}</th>
+        <th>{{servicio.descripcion}}</th>
+        <th>
+            {%if servicio.activo %}
+            <a href="{% url 'servicios:desactivar_servicio' servicio.id %}">Desactivar</a>
+            {% else %}
+            <a href="{% url 'servicios:activar_servicio' servicio.id %}">Activar</a>
+            {% endif %}
+            <a href="{% url 'servicios:modificar_servicio' servicio.id %}">Modificar</a></th>
+    </tr>
 
+    {%endfor%}
+</table>
 
-
-
-
-
-
-
-
-
-
-
-{% endblock contenido %}
+{% endblock contenido %} {% endcomment %}

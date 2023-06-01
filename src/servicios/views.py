@@ -1,7 +1,24 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from .models import Servicio
+from .forms import *
 # Create your views here.
+
+# def nueva_servicio(request):
+#     form=FormServicio()
+#     if request.method=='POST':
+#         form=FormServicio(request.POST)
+#         if form.is_valid():
+#             cd=form.cleaned_data
+#             Servicio.objects.create(nombre=cd['nombre'],
+#                                     descripcion=cd['descripcion']
+#                                            )
+#             return HttpResponseRedirect("/servicios/listado")       
+#     else:
+#         form=FormServicio()
+    
+#     return render(request,'servicios/nuevo.html',{'form':form})
+
 
 def desactivar_servicio(request, id):
     servicio = get_object_or_404(Servicio, id=id)

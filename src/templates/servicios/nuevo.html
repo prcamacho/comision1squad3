@@ -1,0 +1,9 @@
+{% comment %} {% extends 'base/base.html' %}
+{% block contenido %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+</form>
+<a href="{% url 'servicios:listado_servicios' %}">Listado</a>
+{% endblock contenido %} {% endcomment %}
