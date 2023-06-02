@@ -20,6 +20,7 @@ from .forms import *
 #     return render(request,'servicios/nuevo.html',{'form':form})
 
 
+
 def desactivar_servicio(request, id):
     servicio = get_object_or_404(Servicio, id=id)
     if servicio.activo == False:

@@ -22,3 +22,14 @@ def nueva_reserva(request):
         form=FormReserva()
     
     return render(request,'reservas/nuevo.html',{'form':form})
+
+# def modificar_reserva(request,id):
+#     reserva = get_object_or_404(Reserva, id=id)
+#     if request.method == 'POST':
+#         formulario = EditarFormularioReserva(request.POST, instance=reserva)
+#         if formulario.is_valid():
+#             formulario.save()
+#             return HttpResponseRedirect("/reservas/listado")
+#     else:
+#         formulario = EditarFormularioReserva(instance=reserva)
+#         return render(request, 'reservas/nuevo.html', {'form': formulario}) 
