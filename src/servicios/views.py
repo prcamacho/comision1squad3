@@ -26,3 +26,15 @@ def desactivar_servicio(request, id):
         servicio.activo=True
         servicio.save()
     return HttpResponseRedirect ("/servicios/listado")
+
+# def activar_servicio(request, id):
+# Estaba aburrido
+#     servicio = get_object_or_404(Servicio, id=id)
+#     if servicio.activo == True:
+#         servicio.activo=False
+#         servicio.save()
+#     return HttpResponseRedirect ("/servicios/listado")
+
+def listado_servicios(request):
+    servicios=Servicio.objects.all()
+    return render(request,'servicios/listado.html',{'servicios':servicios})
