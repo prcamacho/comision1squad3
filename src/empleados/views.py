@@ -17,7 +17,7 @@ def nuevo_empleado(request):
         if formulario.is_valid():
             cd = formulario.cleaned_data
             
-            nuevo_Empleado = Empleado.objects.create(nombre = cd['nombre'],
+            Empleado.objects.create(nombre = cd['nombre'],
                                                      apellido = cd['apellido'],
                                                      numero_legajo = cd ['numero_legajo'])
             messages.success(request, "Empleado agregado con exito")

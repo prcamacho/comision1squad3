@@ -1,4 +1,4 @@
-{% comment %} {% extends 'base/base.html' %}
+{% extends 'base/base.html' %}
 
 {% block contenido %}
 
@@ -21,10 +21,10 @@
             {% else %}
             <a href="{% url 'servicios:activar_servicio' servicio.id %}">Activar</a>
             {% endif %}
-            <a href="{% url 'servicios:modificar_servicio' servicio.id %}">Modificar</a></th>
+            {% comment %} <a href="{% url 'servicios:modificar_servicio' servicio.id %}">Modificar</a></th> {% endcomment %}
     </tr>
 
     {%endfor%}
 </table>
 
-{% endblock contenido %} {% endcomment %}
+{% endblock contenido %}

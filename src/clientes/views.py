@@ -18,7 +18,7 @@ def nuevo_cliente(request):
     else:
         form=FormCliente()
     
-    return render(request,'clientes/crear.html',{'form':form})
+    return render(request,'clientes/nuevo.html',{'form':form})
 
 def desactivar_cliente(request,id):
     cliente_a_desactivar=get_object_or_404(Cliente,id=id)
@@ -46,4 +46,4 @@ def modificar_cliente(request,id):
             return HttpResponseRedirect("/clientes/listado")
     else:
         formulario = EditarFormCliente(instance=cliente)
-    return render(request, 'clientes/crear.html', {'form': formulario}) 
+    return render(request, 'clientes/nuevo.html', {'form': formulario}) 

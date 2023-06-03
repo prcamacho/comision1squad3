@@ -38,7 +38,7 @@ def nuevo_coordinador(request):
     else:
         form=FormCoordinador()
     
-    return render(request,'coordinadores/crear.html',{'form':form,
+    return render(request,'coordinadores/nuevo.html',{'form':form,
                                                     'mensaje':mensaje,
                                                     'coordinador_nuevo':coordinador_nuevo,
                                                     })
@@ -53,4 +53,4 @@ def modificar_coordinador(request, id):
             return HttpResponseRedirect("/coordinadores/listado")
     else:
         formulario = EditarFormCoordinador(instance=coordinador)
-    return render(request, 'coordinadores/crear.html', {'form': formulario}) 
+    return render(request, 'coordinadores/nuevo.html', {'form': formulario}) 
