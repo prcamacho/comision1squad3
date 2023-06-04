@@ -14,10 +14,7 @@ def nuevo_servicio(request):
                                     descripcion=cd['descripcion'],
                                     precio=cd['precio']
                                            )
-            return HttpResponseRedirect("/servicios/listado")       
-    else:
-        form=FormularioServicio()
-    
+            return HttpResponseRedirect("/servicios/listado")           
     return render(request,'servicios/nuevo.html',{'form':form})
 
 def desactivar_servicio(request, pk):

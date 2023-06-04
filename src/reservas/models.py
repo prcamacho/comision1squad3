@@ -5,8 +5,6 @@ from empleados.models import Empleado
 from servicios.models import Servicio
 
 # Create your models here.
-
-
 class ReservaServicio (models.Model):
     fecha_creacion=models.DateTimeField(auto_now_add=True)
     fecha_reserva=models.DateTimeField()

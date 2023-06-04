@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'clientes',
     'coordinadores',
     'servicios',
+    'api',
 ]
 
 MIDDLEWARE = [

@@ -1,17 +1,40 @@
 {% extends 'base/base.html' %}
+
 {% block contenido %}
 
+<a href="{% url 'reservas:nueva_reserva' %}">Nuevo Servicio</a>
+<table>
+    <tr>
+        <td><h2>ID</h2></td>
+        <td><h2>Fecha Creacion</h2></td>
+        <td><h2>Fecha Reserva</h2></td>
+        <td><h2>Cliente</h2></td>
+        <td><h2>Responsable</h2></td>
+        <td><h2>Empleado</h2></td>
+        <td><h2>Servicio</h2></td>
+        <td><h2>Precio</h2></td>
+    </tr>
 
+    {% for reserva in reservas %}
+    <tr>
+        <th>{{reserva.id}} </th>
+        <th>{{reserva.fecha_creacion}}</th>
+        <th>{{reserva.fecha_reserva}}</th>
+        <th>{{reserva.cliente}}</th>
+        <th>{{reserva.responsable}}</th>
+        <th>{{reserva.empleado}}</th>
+        <th>{{reserva.servicio}}</th>
+        <th>{{reserva.precio}}</th>
+        <th>
+            {% comment %} {%if servicio.activo %}
+            <a href="{% url 'reservas:desactivar_reserva' reserva.id %}">Desactivar</a>
+            {% else %}
+            <a href="{% url 'reservas:activar_reserva' reserva.id %}">Activar</a>
+            {% endif %} {% endcomment %}
+            {% comment %} <a href="{% url 'reservas:modificar_reserva' reserva.id %}">Modificar</a></th> {% endcomment %}
+    </tr>
 
-
-
-
-
-
-
-
-
-
-
+    {%endfor%}
+</table>
 
 {% endblock contenido %}

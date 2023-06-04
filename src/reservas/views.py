@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
-from .forms import FormReserva
+from django.shortcuts import render,get_object_or_404
+from .forms import *
 from .models import ReservaServicio
 # Create your views here.
 
@@ -23,13 +23,17 @@ def nueva_reserva(request):
     
     return render(request,'reservas/nuevo.html',{'form':form})
 
-# def modificar_reserva(request,id):
-#     reserva = get_object_or_404(Reserva, id=id)
-#     if request.method == 'POST':
-#         formulario = EditarFormularioReserva(request.POST, instance=reserva)
-#         if formulario.is_valid():
-#             formulario.save()
-#             return HttpResponseRedirect("/reservas/listado")
-#     else:
-#         formulario = EditarFormularioReserva(instance=reserva)
-#         return render(request, 'reservas/nuevo.html', {'form': formulario}) 
+def listado_reservas(request):
+    reservas=ReservaServicio.objects.all()
+    return render(request,'reservas/listado.html',{'reservas':reservas})
+
+def modificar_reserva(request,id):
+    reserva = get_object_or_404(ReservaServicio, id=id)
+    if request.method == 'POST':
+        formulario = EditarFormReserva(request.POST, instance=reserva)
+        if formulario.is_valid():
+            formulario.save()
+            return HttpResponseRedirect("/reservas/listado")
+    else:
+        formulario = EditarFormReserva(instance=reserva)
+        return render(request, 'reservas/nuevo.html', {'form': formulario}) 

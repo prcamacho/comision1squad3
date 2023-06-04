@@ -5,5 +5,7 @@ from .views import *
 app_name = "empleados"
 
 urlpatterns = [
-    path('nuevo/', nueva_reserva,name='nueva_reserva')
+    path('nuevo/', nueva_reserva,name='nueva_reserva'),
+    path('modificar/<int:id>/', modificar_reserva,name='modificar_reserva'),
+    path('listado/',listado_reservas,name='listado_reservas')
 ]
