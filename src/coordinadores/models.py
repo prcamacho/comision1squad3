@@ -7,7 +7,7 @@ class Coordinador(models.Model):
     nombre=models.CharField(max_length=50)
     apellido=models.CharField(max_length=50)
     numero_documento=models.PositiveBigIntegerField()
-    fecha_alta=models.DateTimeField(default=datetime.now())#auto_now_add
+    fecha_alta=models.DateTimeField(default=datetime.now())
     activo=models.BooleanField(default=True)
 
     def __str__(self):

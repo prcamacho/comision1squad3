@@ -12,7 +12,7 @@
 
     {% for servicio in servicios %}
     <tr>
-        <th>{{servico.id}} </th>
+        <th>{{servicio.id}} </th>
         <th>{{servicio.nombre}}</th>
         <th>{{servicio.descripcion}}</th>
         <th>
@@ -21,7 +21,7 @@
             {% else %}
             <a href="{% url 'servicios:activar_servicio' servicio.id %}">Activar</a>
             {% endif %}
-            {% comment %} <a href="{% url 'servicios:modificar_servicio' servicio.id %}">Modificar</a></th> {% endcomment %}
+            <a href="{% url 'servicios:modificar_servicio' servicio.id %}">Modificar</a></th>
     </tr>
 
     {%endfor%}
