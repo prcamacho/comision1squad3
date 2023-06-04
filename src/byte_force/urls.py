@@ -24,4 +24,5 @@ urlpatterns = [
     path('coordinadores/', include('coordinadores.urls',namespace='coordinadores')),
     path('reservas/',include('reservas.urls',namespace='reservas')),
     path('servicios/',include('servicios.urls',namespace='servicios')),
+    path('api/',include('api.urls',namespace='api')),
 ]

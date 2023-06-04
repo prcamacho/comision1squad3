@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'coordinadores',
     'servicios',
     'api',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
