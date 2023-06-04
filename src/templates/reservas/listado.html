@@ -26,12 +26,12 @@
         <th>{{reserva.servicio}}</th>
         <th>{{reserva.precio}}</th>
         <th>
-            {% comment %} {%if servicio.activo %}
+            {%if servicio.activo %}
             <a href="{% url 'reservas:desactivar_reserva' reserva.id %}">Desactivar</a>
             {% else %}
             <a href="{% url 'reservas:activar_reserva' reserva.id %}">Activar</a>
-            {% endif %} {% endcomment %}
-            {% comment %} <a href="{% url 'reservas:modificar_reserva' reserva.id %}">Modificar</a></th> {% endcomment %}
+            {% endif %}
+            <a href="{% url 'reservas:modificar_reserva' reserva.id %}">Modificar</a></th>
     </tr>
 
     {%endfor%}

@@ -17,6 +17,17 @@ def nuevo_servicio(request):
             return HttpResponseRedirect("/servicios/listado")           
     return render(request,'servicios/nuevo.html',{'form':form})
 
+def modificar_servicio(request,id):
+    servicio = get_object_or_404(Servicio, id=id)
+    if request.method == 'POST':
+        formulario = EditarFormularioServicio(request.POST, instance=servicio)
+        if formulario.is_valid():
+            formulario.save()
+            return HttpResponseRedirect("/servicios/listado")
+    else:
+        formulario = EditarFormularioServicio(instance=servicio)
+        return render(request, 'servicios/nuevo.html', {'form': formulario}) 
+
 def desactivar_servicio(request, pk):
     servicio = get_object_or_404(Servicio, id=pk)
     if servicio.activo == True:

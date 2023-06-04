@@ -37,3 +37,10 @@ def modificar_reserva(request,id):
     else:
         formulario = EditarFormReserva(instance=reserva)
         return render(request, 'reservas/nuevo.html', {'form': formulario}) 
+    
+def eliminar_reserva(request,id):
+    reserva = get_object_or_404(ReservaServicio, id=id)
+    reserva.delete()
+    reserva.save()
+    reservas=ReservaServicio.objects.all()
+    return render(request,'reservas/listado.html',{'reservas':reservas})
