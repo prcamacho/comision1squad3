@@ -1,8 +1,12 @@
 {% extends 'base/base.html' %}
 
+{% if mensaje %}
+{{mensaje}}
+{% endif %}
+
 {% block contenido %}
 
-<a href="{% url 'reservas:nueva_reserva' %}">Nuevo Servicio</a>
+<a href="{% url 'reservas:nueva_reserva' %}">Nueva Reserva</a>
 <table>
     <tr>
         <td><h2>ID</h2></td>
@@ -26,11 +30,7 @@
         <th>{{reserva.servicio}}</th>
         <th>{{reserva.precio}}</th>
         <th>
-            {%if servicio.activo %}
-            <a href="{% url 'reservas:desactivar_reserva' reserva.id %}">Desactivar</a>
-            {% else %}
-            <a href="{% url 'reservas:activar_reserva' reserva.id %}">Activar</a>
-            {% endif %}
+            <a href="{% url 'reservas:eliminar_reserva' reserva.id %}">Eliminar</a>
             <a href="{% url 'reservas:modificar_reserva' reserva.id %}">Modificar</a></th>
     </tr>
 

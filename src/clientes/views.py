@@ -1,12 +1,14 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
+from django.contrib import messages
 from .models import Cliente
 from .forms import FormCliente, EditarFormCliente
 
 # Create your views here.
 def nuevo_cliente(request):
     form=FormCliente()
+    mensaje=None
     if request.method=='POST':
         form=FormCliente(request.POST)
         if form.is_valid():
@@ -14,11 +16,12 @@ def nuevo_cliente(request):
             Cliente.objects.create(nombre=cd['nombre'],
                                     apellido=cd['apellido'],
                                     )
+            messages.info(request, "Cliente creado con éxito")
             return HttpResponseRedirect("/clientes/listado")       
     else:
         form=FormCliente()
     
-    return render(request,'clientes/nuevo.html',{'form':form})
+    return render(request,'clientes/crear.html',{'form':form})
 
 def desactivar_cliente(request,id):
     cliente_a_desactivar=get_object_or_404(Cliente,id=id)

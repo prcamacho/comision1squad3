@@ -1,5 +1,9 @@
 {% extends 'base/base.html' %}
 
+{% if mensaje %}
+{{mensaje}}
+{% endif %}
+
 {% block contenido %}
 
 <a href="{% url 'coordinadores:nuevo_coordinador' %}">Nuevo Coordinador</a>

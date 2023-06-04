@@ -1,5 +1,9 @@
 {% extends 'base/base.html' %}
 
+{% if mensaje %}
+{{mensaje}}
+{% endif %}
+
 {% block contenido %}
 <h1>Lista de Empleados</h1>
 <a href="{% url 'empleados:nuevo_empleado' %}">Nuevo Empleado</a>
