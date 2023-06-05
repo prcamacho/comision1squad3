@@ -1,18 +1,29 @@
 # App de Reserva de Eventos
 
+# ProyectoBiblioteca
+
 ## Alkemy - Comisión 1 Squad 3
-***Integrantes:***
+
+# Índice
+* <span><a href="#descripcion">Descripción del Proyecto</a></span>
+* <span><a href="#visual"></a></span>
+* <span><a href="#visual"></a></span>
+* <span><a href="#ejecutar">Ejecutar Proyecto</a></span>
+* <span><a href="#colaboradores">Colaboradores</a></span>
+
+<h2 id="descripcion">Descripción del Proyecto</h2> 
+    
+Aplicación web desarrollada en Python con framework Django que permite registrar los servicios que la empresa ofrece, registrar empleados y clientes, poder reservar un servicio para un cliente y visualizar diferentes tipos de listados. También se puede acceder a la información de los servicios a través de un endpoint en donde se podrán consultar todos los servicios disponibles y poder filtrarlos por el id en donde se visualizará el detalle completo del mismo.
+
+<h2 id="ejecutar">Ejecutar Proyecto</h2>
+
+<h2 id="colaboradores">Colaboradores</h2>
+
 * Mendez, Eusebio
 * Camacho, Pablo
 * Zelaya, Fernando
 * Chachagua, Daniel
 
-## Descripción del Proyecto
-
-Aplicación web desarrollada en Python con framework Django que permite registrar los servicios que la empresa ofrece, registrar empleados y clientes, poder reservar un servicio para un cliente y visualizar diferentes tipos de listados. También se puede acceder a la información de los servicios a través de un endpoint en donde se podrán consultar todos los servicios disponibles y poder filtrarlos por el id en donde se visualizará el detalle completo del mismo.
-
-# [Índice]("#visual")
-<span><a href="#visual">visual</a></span>
 
 
 
@@ -20,10 +31,10 @@ Aplicación web desarrollada en Python con framework Django que permite registra
 
 
 
-# ProyectoBiblioteca
 
-Python - Django
-Comisión 1. Squad 2. Bootcamp Alkemy
+
+
+
 
 ## Descripcion
 
