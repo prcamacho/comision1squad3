@@ -1,5 +1,9 @@
 {% extends 'base/base.html' %}
 
+
+
+{% block contenido %}
+
 {% if messages %}
 <ul class="messages">
   {% for message in messages %}
@@ -8,7 +12,6 @@
 </ul>
 {% endif %}
 
-{% block contenido %}
 <a href="{% url 'clientes:nuevo_cliente' %}">Nuevo Cliente</a>
 <h1>Lista de Clientes</h1>
     <table class="table">

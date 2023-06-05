@@ -1,5 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
+from django.contrib import messages
 from .models import Servicio
 from .forms import *
 # Create your views here.
@@ -14,6 +15,7 @@ def nuevo_servicio(request):
                                     descripcion=cd['descripcion'],
                                     precio=cd['precio']
                                            )
+            messages.success(request, "Servicio agregado con exito")
             return HttpResponseRedirect("/servicios/listado")           
     return render(request,'servicios/nuevo.html',{'form':form})
 

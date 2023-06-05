@@ -2,6 +2,7 @@ from django.shortcuts import render,get_object_or_404,redirect
 from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Coordinador
+from django.contrib import messages
 from .forms import EditarFormCoordinador, FormCoordinador
 
 # Create your views here.
@@ -34,14 +35,12 @@ def nuevo_coordinador(request):
                                                          apellido=cd['apellido'],
                                                          numero_documento=cd['numero_documento'],
                                                          )
-            mensaje="Coordinador Creado con exito"
+            messages.success(request, "Coordinador creado con éxito")
+            return HttpResponseRedirect("/coordinadores/listado")
     else:
         form=FormCoordinador()
     
-    return render(request,'coordinadores/nuevo.html',{'form':form,
-                                                    'mensaje':mensaje,
-                                                    'coordinador_nuevo':coordinador_nuevo,
-                                                    })
+    return render(request,'coordinadores/nuevo.html',{'form':form})
             
 
 def modificar_coordinador(request, id):

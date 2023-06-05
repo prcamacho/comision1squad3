@@ -1,6 +1,7 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from .forms import *
+from django.contrib import messages
 from .models import ReservaServicio
 # Create your views here.
 
@@ -17,6 +18,7 @@ def nueva_reserva(request):
                                            servicio=cd['servicio'],
                                            precio=cd['precio']
                                            )
+            messages.success(request, "Reserva agregada con exito")
             return HttpResponseRedirect("/reservas/listado")       
     else:
         form=FormReserva()
@@ -41,6 +43,4 @@ def modificar_reserva(request,id):
 def eliminar_reserva(request,id):
     reserva = get_object_or_404(ReservaServicio, id=id)
     reserva.delete()
-    reserva.save()
-    reservas=ReservaServicio.objects.all()
-    return render(request,'reservas/listado.html',{'reservas':reservas})
+    return redirect('reservas:listado_reservas')

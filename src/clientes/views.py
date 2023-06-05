@@ -8,7 +8,6 @@ from .forms import FormCliente, EditarFormCliente
 # Create your views here.
 def nuevo_cliente(request):
     form=FormCliente()
-    mensaje=None
     if request.method=='POST':
         form=FormCliente(request.POST)
         if form.is_valid():
@@ -16,7 +15,7 @@ def nuevo_cliente(request):
             Cliente.objects.create(nombre=cd['nombre'],
                                     apellido=cd['apellido'],
                                     )
-            messages.info(request, "Cliente creado con éxito")
+            messages.success(request, "Cliente creado con éxito")
             return HttpResponseRedirect("/clientes/listado")       
     else:
         form=FormCliente()
