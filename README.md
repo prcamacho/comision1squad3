@@ -9,8 +9,7 @@
 * <span><a href="#ejecutar">Ejecutar Proyecto</a></span>
 * <span><a href="#colaboradores">Colaboradores</a></span>
 
-<h2 id="descripcion">Descripción del Proyecto</h2> 
-    
+<h2 id="descripcion">Descripción del Proyecto</h2>
 Aplicación web desarrollada en Python con framework Django que permite registrar los servicios que la empresa ofrece, registrar empleados y clientes, poder reservar un servicio para un cliente y visualizar diferentes tipos de listados. También se puede acceder a la información de los servicios a través de un endpoint en donde se podrán consultar todos los servicios disponibles y poder filtrarlos por el id en donde se visualizará el detalle completo del mismo.
 
 <h2 id="modulos">Módulos</h2>
