@@ -1,2 +1,3 @@
-# comision1squad3
+# App de Reserva de Eventos
 Alkemy Salta
+##Proyecto
