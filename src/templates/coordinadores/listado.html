@@ -14,31 +14,38 @@
 </ul>
 {% endif %}
 
-<a href="{% url 'coordinadores:nuevo_coordinador' %}">Nuevo Coordinador</a>
-<table>
-    <tr>
-        <td><h2>ID</h2></td>
-        <td><h2>Nombre</h2></td>
-        <td><h2>Apellido</h2></td>
-        <td><h2>DNI</h2></td>
-    </tr>
+<h1 class="m-4">Lista de Coordinadores</h1>
 
-    {% for coordinador in coordinadores %}
-    <tr>
-        <th>{{coordinador.id}} </th>
-        <th>{{coordinador.nombre}}</th>
-        <th>{{coordinador.apellido}}</th>
-        <th>{{coordinador.numero_documento}}</th>
+<a href="{% url 'coordinadores:nuevo_coordinador' %}" class="float-end m-2"><button type="button" class="btn btn-primary text-aling-center rounded-5"><i class="bi bi-person-fill-add"></i> Nuevo Coordinador</button></a>
+
+<table class="table table-striped text-center">
+    <tbody>
+      <tr class="table-secondary fs-4">
+        <td>ID</td>
+        <td>Nombre</td>
+        <td>Apellido</td>
+        <td>DNI</td>
+        <td>Acciones</td>
+      </tr>
+        {% for coordinador in coordinadores %}
+    <tr class="align-text-bottom">
+        <th class="fs-6 fw-normal">{{coordinador.id}} </th>
+        <th class="fs-6 fw-normal">{{coordinador.nombre}}</th>
+        <th class="fs-6 fw-normal">{{coordinador.apellido}}</th>
+        <th class="fs-6 fw-normal">{{coordinador.numero_documento}}</th>
         <th>
             {%if coordinador.activo %}
-            <a href="{% url 'coordinadores:desactivar_coordinador' coordinador.id %}">Desactivar</a>
+            <a href="{% url 'coordinadores:desactivar_coordinador' coordinador.id %}"><button type="button" class="btn btn-danger rounded-start-pill"><i class="bi bi-person-fill-slash"></i> Desactivar</button></a>
             {% else %}
-            <a href="{% url 'coordinadores:activar_coordinador' coordinador.id %}">Activar</a>
+            <a href="{% url 'coordinadores:activar_coordinador' coordinador.id %}"><button type="button" class="btn btn-success rounded-start-pill"><i class="bi bi-person-fill-check"></i> Activar</button></a>
             {% endif %}
-            <a href="{% url 'coordinadores:modificar_coordinador' coordinador.id %}">Modificar</a></th>
+            <a href="{% url 'coordinadores:modificar_coordinador' coordinador.id %}"><button type="button" class="btn btn-dark rounded-end-pill"><i class="bi bi-pencil-square"></i> Modificar</button></a>
+        </th>
     </tr>
 
     {%endfor%}
-</table>
+    </tbody>
+  </table>
+
 
 {% endblock contenido %}
