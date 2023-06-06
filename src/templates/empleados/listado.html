@@ -14,41 +14,38 @@
 </ul>
 {% endif %}
 
-<h1>Lista de Empleados</h1>
-<a href="{% url 'empleados:nuevo_empleado' %}">Nuevo Empleado</a>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Apellido</th>
-          <th scope="col">Numero Legajo</th>
-          <th scope="col">Activo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
+<h1 class="m-4">Lista de Empleados</h1>
+
+<a href="{% url 'empleados:nuevo_empleado' %}" class="float-end m-2"><button type="button" class="btn btn-primary text-aling-center rounded-5"><i class="bi bi-person-fill-add"></i> Nuevo Empleado</button></a>
+
+<table class="table table-striped text-center">
+    <tbody>
+      <tr class="table-secondary fs-4">
+        <td>ID</td>
+        <td>Nombre</td>
+        <td>Apellido</td>
+        <td>Numero Legajo</td>
+        <td>Acciones</td>
+      </tr>
         {% for empleado in empleados %}
-          <th scope="row">{{empleado.id}}</th>
-          <td>{{empleado.nombre}}</td>
-          <td>{{empleado.apellido}}</td>
-          <td>{{empleado.numero_legajo}}</td>
-          {% if empleado.activo %}
-          <td>Si</td>
-          {% else %}
-          <td>No</td>
-          {% endif %}
-          <td>
-          {% if empleado.activo %}
-          <a href="{% url 'empleados:desactivar_empleado' empleado.id %}">Desactivar</a>
-          {% else %}
-          <a href="{% url 'empleados:activar_empleado' empleado.id %}">Activar</a>
-          {% endif %}
-          <a href="{% url 'empleados:modificar_empleado' empleado.id %}">Modificar</a></th>
-          </td> 
-          
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    <tr class="align-text-bottom">
+        <th class="fs-6 fw-normal">{{empleado.id}} </th>
+        <th class="fs-6 fw-normal">{{empleado.nombre}}</th>
+        <th class="fs-6 fw-normal">{{empleado.apellido}}</th>
+        <th class="fs-6 fw-normal">{{empleado.numero_legajo}}</th>
+        <th>
+            {%if empleado.activo %}
+            <a href="{% url 'empleados:desactivar_empleado' empleado.id %}"><button type="button" class="btn btn-danger rounded-start-pill"><i class="bi bi-person-fill-slash"></i> Desactivar</button></a>
+            {% else %}
+            <a href="{% url 'empleados:activar_empleado' empleado.id %}"><button type="button" class="btn btn-success rounded-start-pill"><i class="bi bi-person-fill-check"></i> Activar</button></a>
+            {% endif %}
+            <a href="{% url 'empleados:modificar_empleado' empleado.id %}"><button type="button" class="btn btn-dark rounded-end-pill"><i class="bi bi-pencil-square"></i> Modificar</button></a>
+        </th>
+    </tr>
+
+    {%endfor%}
+    </tbody>
+  </table>
+
+
 {% endblock contenido %}
