@@ -7,28 +7,28 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="{% url 'vista_inicio' %}">Home</a>
+        <nav class="navbar navbar-expand-lg" style="background-color:#cacaca">
+            <div class="container-fluid fs-5">
+              <a class="navbar-brand fs-4" href="{% url 'vista_inicio' %}">Home</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'clientes:listado_clientes' %}">Clientes</a>
+                    <a class="nav-link {% if 'clientes' in request.path %} bg-dark text-light rounded-1{% endif %}" aria-current="page" href="{% url 'clientes:listado_clientes' %}">Clientes</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'coordinadores:listado_coordinadores' %}">Coordinadores</a>
+                    <a class="nav-link {% if 'coordinador' in request.path %}  bg-dark text-light rounded-1{% endif %}" href="{% url 'coordinadores:listado_coordinadores' %}">Coordinadores</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'empleados:listado_empleados' %}">Empleados</a>
+                    <a class="nav-link {% if 'empleados' in request.path %}  bg-dark text-light rounded-1{% endif %}" href="{% url 'empleados:listado_empleados' %}">Empleados</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'reservas:listado_reservas' %}">Reservas</a>
+                    <a class="nav-link {% if 'reservas' in request.path %}  bg-dark text-light rounded-1{% endif %}" href="{% url 'reservas:listado_reservas' %}">Reservas</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'servicios:listado_servicios' %}">Servicios</a>
+                    <a class="nav-link {% if 'servicios' in request.path %}  bg-dark text-light rounded-1{% endif %}" href="{% url 'servicios:listado_servicios' %}">Servicios</a>
                   </li>
                 </ul>
               </div>
