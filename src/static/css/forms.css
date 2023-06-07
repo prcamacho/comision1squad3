@@ -32,6 +32,6 @@ p label{
     font-size: 1.5rem;
 }
 
-section{
-    min-height: calc(100vh - 54px);
+#principal{
+    min-height: calc(100vh - 62px - 168px);
 }
