@@ -1,49 +1,61 @@
 {% extends 'base/base.html' %}
 
 {% if mensaje %}
-{{mensaje}}
+  {{mensaje}}
 {% endif %}
 
 {% block contenido %}
 
 {% if messages %}
-<ul class="messages">
-  {% for message in messages %}
-  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-  {% endfor %}
-</ul>
+  <ul class="messages">
+    {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
 {% endif %}
 
-<h1 class="m-4">Lista de Servicios</h1>
+<div class="container">
+  <h1 class="display-4 text-center mt-4 mb-5">Lista de Servicios</h1>
 
-<a href="{% url 'servicios:nuevo_servicio' %}" class="float-end m-2"><button type="button" class="btn btn-primary text-aling-center rounded-5"><i class="bi bi-clipboard2-plus-fill"></i> Nuevo Servicio</button></a>
+  <a href="{% url 'servicios:nuevo_servicio' %}" class="float-end m-2">
+    <button type="button" class="btn btn-primary rounded-5">
+      <i class="bi bi-clipboard2-plus-fill"></i> Nuevo Servicio
+    </button>
+  </a>
 
-<table class="table table-striped text-center">
-    <tbody>
+  <table class="table table-striped text-center">
+    <thead>
       <tr class="table-secondary fs-4">
-        <td>ID</td>
-        <td>Nombre</td>
-        <td>Descripción</td>
-        <td>Acciones</td>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Acciones</th>
       </tr>
-        {% for servicio in servicios %}
-    <tr class="align-text-bottom">
-        <th class="fs-6 fw-normal">{{servicio.id}} </th>
-        <th class="fs-6 fw-normal">{{servicio.nombre}}</th>
-        <th class="fs-6 fw-normal">{{servicio.descripcion}}</th>
-        <th>
-            {%if servicio.activo %}
-            <a href="{% url 'servicios:desactivar_servicio' servicio.id %}"><button type="button" class="btn btn-danger rounded-start-pill"><i class="bi bi-clipboard2-x-fill"></i> Desactivar</button></a>
+    </thead>
+    <tbody>
+      {% for servicio in servicios %}
+        <tr class="align-text-bottom">
+          <td class="fs-6 fw-normal">{{servicio.id}}</td>
+          <td class="fs-6 fw-normal">{{servicio.nombre}}</td>
+          <td class="fs-6 fw-normal">{{servicio.descripcion}}</td>
+          <td>
+            {% if servicio.activo %}
+              <a href="{% url 'servicios:desactivar_servicio' servicio.id %}" class="btn btn-danger rounded-start-pill">
+                <i class="bi bi-clipboard2-x-fill"></i> Desactivar
+              </a>
             {% else %}
-            <a href="{% url 'servicios:activar_servicio' servicio.id %}"><button type="button" class="btn btn-success rounded-start-pill"><i class="bi bi-clipboard2-check-fill"></i> Activar</button></a>
+              <a href="{% url 'servicios:activar_servicio' servicio.id %}" class="btn btn-success rounded-start-pill">
+                <i class="bi bi-clipboard2-check-fill"></i> Activar
+              </a>
             {% endif %}
-            <a href="{% url 'servicios:modificar_servicio' servicio.id %}"><button type="button" class="btn btn-dark rounded-end-pill"><i class="bi bi-pencil-square"></i> Modificar</button></a>
-        </th>
-    </tr>
-
-    {%endfor%}
+            <a href="{% url 'servicios:modificar_servicio' servicio.id %}" class="btn btn-dark rounded-end-pill">
+              <i class="bi bi-pencil-square"></i> Modificar
+            </a>
+          </td>
+        </tr>
+      {% endfor %}
     </tbody>
   </table>
-
+</div>
 
 {% endblock contenido %}
