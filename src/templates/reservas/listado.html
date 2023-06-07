@@ -13,14 +13,14 @@
   {% endfor %}
 </ul>
 {% endif %}
-
+<div class="container-fluid">
 <h1 class="m-4">Lista de Reservas</h1>
 
 <a href="{% url 'reservas:nueva_reserva' %}" class="float-end m-2"><button type="button" class="btn btn-primary text-aling-center rounded-5"><i class="bi bi-calendar4-week"></i> Nueva Reserva</button></a>
 
 <table class="table table-striped text-center">
     <tbody>
-      <tr class="table-secondary fs-4">
+      <tr class="table-secondary fs-4 ">
         <td>ID</td>
         <td>Fecha Creacion</td>
         <td>Fecha Reserva</td>
@@ -29,7 +29,7 @@
         <td>Empleado</td>
         <td>Servicio</td>
         <td>Precio</td>
-        <td>Acciones</td>
+        <td class="col-3">Acciones</td>
       </tr>
         {% for reserva in reservas %}
     <tr class="align-text-bottom">
@@ -51,6 +51,6 @@
     </tbody>
   </table>
 
-
+</div>
 {% endblock contenido %}
 

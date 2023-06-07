@@ -5,7 +5,7 @@
 {% endif %}
 
 {% block contenido %}
-
+<div class="container-fluid">
 {% if messages %}
 <ul class="messages">
   {% for message in messages %}
@@ -28,7 +28,7 @@
         <td>Acciones</td>
       </tr>
         {% for coordinador in coordinadores %}
-    <tr class="align-text-bottom">
+    <tr class="align-text-bottom {% if coordinador.activo %} table-success {% else %} table-danger {% endif %}">
         <th class="fs-6 fw-normal">{{coordinador.id}} </th>
         <th class="fs-6 fw-normal">{{coordinador.nombre}}</th>
         <th class="fs-6 fw-normal">{{coordinador.apellido}}</th>
@@ -46,6 +46,6 @@
     {%endfor%}
     </tbody>
   </table>
-
+</div>
 
 {% endblock contenido %}

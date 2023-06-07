@@ -1,9 +1,12 @@
 {% extends 'base/base.html' %}
 {% block contenido %}
-<form action="" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar</button>
-</form>
-<a href="{% url 'servicios:listado_servicios' %}">Listado</a>
+
+<div class="container-fluid">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="botones btn btn-success">Guardar</button>
+    </form>
+    <a href="{% url 'servicios:listado_servicios' %}"><button class="botones btn btn-primary">Lista de Servicios</button></a>
+</div>
 {% endblock contenido %}
