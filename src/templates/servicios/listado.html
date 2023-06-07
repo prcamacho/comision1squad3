@@ -36,8 +36,8 @@
       {% for servicio in servicios %}
         <tr class="align-text-bottom">
           <td class="fs-6 fw-normal">{{servicio.id}}</td>
-          <td class="fs-6 fw-normal">{{servicio.nombre}}</td>
-          <td class="fs-6 fw-normal">{{servicio.descripcion}}</td>
+          <td class="fs-6 fw-normal col-2">{{servicio.nombre}}</td>
+          <td class="fs-6 fw-normal col-6">{{servicio.descripcion}}</td>
           <td>
             {% if servicio.activo %}
               <a href="{% url 'servicios:desactivar_servicio' servicio.id %}" class="btn btn-danger rounded-start-pill">
