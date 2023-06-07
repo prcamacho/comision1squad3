@@ -14,7 +14,7 @@
   </ul>
 {% endif %}
 
-<div class="container">
+<div class="container-fluid">
   <h1 class="display-4 text-center mt-4 mb-5">Lista de Empleados</h1>
 
   <a href="{% url 'empleados:nuevo_empleado' %}" class="float-end m-2">
@@ -35,7 +35,7 @@
     </thead>
     <tbody>
       {% for empleado in empleados %}
-        <tr class="align-text-bottom">
+        <tr class="align-text-bottom {% if empleado.activo %} table-success {% else %} table-danger {% endif %}">
           <td class="fs-6 fw-normal">{{empleado.id}}</td>
           <td class="fs-6 fw-normal">{{empleado.nombre}}</td>
           <td class="fs-6 fw-normal">{{empleado.apellido}}</td>
