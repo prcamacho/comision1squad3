@@ -1,49 +1,62 @@
 {% extends 'base/base.html' %}
 
 {% if mensaje %}
-{{mensaje}}
+  {{mensaje}}
 {% endif %}
 
 {% block contenido %}
 
 {% if messages %}
-<ul class="messages">
-  {% for message in messages %}
-  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-  {% endfor %}
-</ul>
+  <ul class="messages">
+    {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
 {% endif %}
 
-<h1 class="m-4">Lista de Clientes</h1>
+<div class="container">
+  <h1 class="display-4 text-center mt-4 mb-5">Lista de Clientes</h1>
 
-<a href="{% url 'clientes:nuevo_cliente' %}" class="float-end m-2"><button type="button" class="btn btn-primary text-aling-center rounded-5"><i class="bi bi-person-fill-add"></i> Nuevo Cliente</button></a>
+  <a href="{% url 'clientes:nuevo_cliente' %}" class="float-end m-2">
+    <button type="button" class="btn btn-primary rounded-5">
+      <i class="bi bi-person-fill-add"></i> Nuevo Cliente
+    </button>
+  </a>
 
-<table class="table table-striped text-center">
-    <tbody>
+  <table class="table table-striped text-center">
+    <thead>
       <tr class="table-secondary fs-4">
-        <td>ID</td>
-        <td>Nombre</td>
-        <td>Apellido</td>
-        <td>Acciones</td>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Acciones</th>
       </tr>
-        {% for cliente in clientes %}
-    <tr class="align-text-bottom">
-        <th class="fs-6 fw-normal">{{cliente.id}} </th>
-        <th class="fs-6 fw-normal">{{cliente.nombre}}</th>
-        <th class="fs-6 fw-normal">{{cliente.apellido}}</th>
-        <th>
-            {%if cliente.activo %}
-            <a href="{% url 'clientes:desactivar_cliente' cliente.id %}"><button type="button" class="btn btn-danger rounded-start-pill"><i class="bi bi-person-fill-slash"></i> Desactivar</button></a>
+    </thead>
+    <tbody>
+      {% for cliente in clientes %}
+        <tr class="align-text-bottom">
+          <td class="fs-6 fw-normal">{{cliente.id}}</td>
+          <td class="fs-6 fw-normal">{{cliente.nombre}}</td>
+          <td class="fs-6 fw-normal">{{cliente.apellido}}</td>
+          <td>
+            {% if cliente.activo %}
+              <a href="{% url 'clientes:desactivar_cliente' cliente.id %}" class="btn btn-danger rounded-start-pill">
+                <i class="bi bi-person-fill-slash"></i> Desactivar
+              </a>
             {% else %}
-            <a href="{% url 'clientes:activar_cliente' cliente.id %}"><button type="button" class="btn btn-success rounded-start-pill"><i class="bi bi-person-fill-check"></i> Activar</button></a>
+              <a href="{% url 'clientes:activar_cliente' cliente.id %}" class="btn btn-success rounded-start-pill">
+                <i class="bi bi-person-fill-check"></i> Activar
+              </a>
             {% endif %}
-            <a href="{% url 'clientes:modificar_cliente' cliente.id %}"><button type="button" class="btn btn-dark rounded-end-pill"><i class="bi bi-pencil-square"></i> Modificar</button></a>
-        </th>
-    </tr>
-
-    {%endfor%}
+            <a href="{% url 'clientes:modificar_cliente' cliente.id %}" class="btn btn-dark rounded-end-pill">
+              <i class="bi bi-pencil-square"></i> Modificar
+            </a>
+          </td>
+        </tr>
+      {% endfor %}
     </tbody>
   </table>
-
+</div>
 
 {% endblock contenido %}
+
