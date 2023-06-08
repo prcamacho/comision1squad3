@@ -3,30 +3,25 @@
 
 {% block contenido %}
 
+<div class="text-center mt-4">
+  <div>
+    <img class="mb-4 w-10" src="{% static 'imagenes/logotransparente.png' %}">
+    <img class="mb-4 w-10" src="{% static 'imagenes/logoinicial.png' %}">
+  </div>
+</div>
 
-<div id="carouselExampleAutoplaying" class="carousel slide " data-bs-ride="carousel">
+<div id="carouselExampleAutoplaying" class="carousel slide mt-4 " data-bs-ride="carousel">
 
     <div class="carousel-inner">
       <div class="carousel-item active ">
-        <img src="{% static 'imagenes/casamiento.jpg' %}"  class="d-block w-50 mx-auto mt-4" alt="casamiento">
-        <div class="carousel-caption d-none d-md-block text-dark mb-3">
-          <h4>Casamientos</h4>
-          <h6>Un evento a la altura de las emociones</h6>
-        </div>
+        <img src="{% static 'imagenes/casamiento2.jpg' %}"  class="d-block w-10 mx-auto " alt="casamiento">         
+
       </div>
       <div class="carousel-item active ">
-        <img src="{% static 'imagenes/empresariales.jpg' %}" class="d-block w-50 mx-auto mt-4" alt="empresariales">
-        <div class="carousel-caption d-none d-md-block text-dark mb-3">
-          <h4>Empresariales</h4>
-          <h6>Eventos formales e informales</h6>
-        </div>
+        <img src="{% static 'imagenes/empresariales2.jpg' %}" class="d-block w-10 mx-auto " alt="empresariales">
       </div>
       <div class="carousel-item active ">
-        <img src="{% static 'imagenes/15anos.jpg' %}" class="d-block w-50 mx-auto mt-4" alt="15 años">
-        <div class="carousel-caption d-none d-md-block  mb-3">
-          <h4>15 años</h4>
-          <h6>Momentos inolvidables</h6>
-        </div>
+        <img src="{% static 'imagenes/15anos2.jpg' %}" class="d-block w-10 mx-auto " alt="15 años">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -37,6 +32,20 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
+  </div>
+
+  <div class="card text-center mt-4">
+    <div class="card-header">
+      Promoción
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Vajilla sin cargo!</h5>
+      <p class="card-text">Reservando tu evento hasta el 10/06</p>
+      <a href="{% url 'reservas:nueva_reserva' %}" class="btn btn-primary">Reserva aqui!!</a>
+    </div>
+    <div class="card-footer text-muted">
+      Quedan solo 2 dias de oferta
+    </div>
   </div>
 
 

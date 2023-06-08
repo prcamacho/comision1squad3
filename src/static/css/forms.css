@@ -17,6 +17,8 @@ p input, textarea, select{
     margin: 0 auto;
 }
 
+
+
 p label{
     display: block;
     width: 70%;
@@ -35,3 +37,4 @@ p label{
 #principal{
     min-height: calc(100vh - 62px - 168px);
 }
+
