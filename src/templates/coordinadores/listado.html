@@ -1,9 +1,5 @@
 {% extends 'base/base.html' %}
 
-{% if mensaje %}
-{{mensaje}}
-{% endif %}
-
 {% block contenido %}
 <div class="container-fluid">
 {% if messages %}
@@ -14,13 +10,13 @@
 </ul>
 {% endif %}
 
-<h1 class="m-4">Lista de Coordinadores</h1>
+<h1 class="fs-1 text-center m-4">Lista de Coordinadores</h1>
 
 <a href="{% url 'coordinadores:nuevo_coordinador' %}" class="float-end m-2"><button type="button" class="btn btn-primary text-aling-center rounded-5"><i class="bi bi-person-fill-add"></i> Nuevo Coordinador</button></a>
 
-<table class="table table-striped text-center">
+<table class="table table-hover text-center">
     <tbody>
-      <tr class="table-secondary fs-4">
+      <tr class="table-secondary fs-4 fw-semibold">
         <td>ID</td>
         <td>Nombre</td>
         <td>Apellido</td>
@@ -29,10 +25,10 @@
       </tr>
         {% for coordinador in coordinadores %}
     <tr class="align-text-bottom {% if coordinador.activo %} table-success {% else %} table-danger {% endif %}">
-        <th class="fs-6 fw-normal">{{coordinador.id}} </th>
-        <th class="fs-6 fw-normal">{{coordinador.nombre}}</th>
-        <th class="fs-6 fw-normal">{{coordinador.apellido}}</th>
-        <th class="fs-6 fw-normal">{{coordinador.numero_documento}}</th>
+        <th class="fs-6 fw-semibold">{{coordinador.id}} </th>
+        <th class="fs-6 fw-semibold">{{coordinador.nombre}}</th>
+        <th class="fs-6 fw-semibold">{{coordinador.apellido}}</th>
+        <th class="fs-6 fw-semibold">{{coordinador.numero_documento}}</th>
         <th>
             {%if coordinador.activo %}
             <a href="{% url 'coordinadores:desactivar_coordinador' coordinador.id %}"><button type="button" class="btn btn-danger rounded-start-pill"><i class="bi bi-person-fill-slash"></i> Desactivar</button></a>

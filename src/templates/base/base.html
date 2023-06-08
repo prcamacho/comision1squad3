@@ -11,27 +11,27 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg sticky-top bg-primary" style="--bs-bg-opacity: .8;">
-            <div class="container-fluid fs-5">
-              <a class="navbar-brand fs-4" href="{% url 'vista_inicio' %}">Home</a>
+            <div class="container-fluid">
+              <a class="navbar-brand fs-3  fw-semibold ms-3" href="{% url 'vista_inicio' %}"><i class="bi bi-house-fill"></i> Home</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link {% if 'clientes' in request.path %} bg-dark text-light rounded-1{% endif %}" aria-current="page" href="{% url 'clientes:listado_clientes' %}">Clientes</a>
+                    <a class="nav-link fs-4 ms-2 text-dark{% if 'clientes' in request.path %} bg-dark text-white rounded-1{% endif %}" aria-current="page" href="{% url 'clientes:listado_clientes' %}">Clientes</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {% if 'coordinador' in request.path %}  bg-dark text-light rounded-1{% endif %}" href="{% url 'coordinadores:listado_coordinadores' %}">Coordinadores</a>
+                    <a class="nav-link fs-4 ms-2 text-dark{% if 'coordinador' in request.path %}  bg-dark text-white rounded-1{% endif %}" href="{% url 'coordinadores:listado_coordinadores' %}">Coordinadores</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {% if 'empleados' in request.path %}  bg-dark text-light rounded-1{% endif %}" href="{% url 'empleados:listado_empleados' %}">Empleados</a>
+                    <a class="nav-link fs-4 ms-2 text-dark{% if 'empleados' in request.path %}  bg-dark text-white rounded-1{% endif %}" href="{% url 'empleados:listado_empleados' %}">Empleados</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {% if 'reservas' in request.path %}  bg-dark text-light rounded-1{% endif %}" href="{% url 'reservas:listado_reservas' %}">Reservas</a>
+                    <a class="nav-link fs-4 ms-2 text-dark{% if 'reservas' in request.path %}  bg-dark text-white rounded-1{% endif %}" href="{% url 'reservas:listado_reservas' %}">Reservas</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {% if 'servicios' in request.path %}  bg-dark text-light rounded-1{% endif %}" href="{% url 'servicios:listado_servicios' %}">Servicios</a>
+                    <a class="nav-link fs-4 ms-2 text-dark{% if 'servicios' in request.path %}  bg-dark text-white rounded-1{% endif %}" href="{% url 'servicios:listado_servicios' %}">Servicios</a>
                   </li>
                 </ul>
               </div>
@@ -43,21 +43,21 @@
 {% endblock contenido %}
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <footer class="container-fluid d-flex justify-content-between bg-primary mt-5" style="--bs-bg-opacity: .5;">
+    <footer class="container-fluid d-flex justify-content-between align-items-center bg-primary mt-5" style="--bs-bg-opacity: .5;">
       <div class="flex-column">
-        <div class="p-2"><i class="bi bi-linkedin"></i> <i class="bi bi-github"></i> Camacho,Pablo</div>
-        <div class="p-2"><i class="bi bi-linkedin"></i> <i class="bi bi-github"></i> Chachagua, Daniel</div>
-        <div class="p-2"><i class="bi bi-linkedin"></i> <i class="bi bi-github"></i> Eguía, Guillermo</div>  
+        <div class="p-2 fs-5"><i class="bi bi-linkedin"></i> <i class="bi bi-github"></i> Camacho,Pablo</div>
+        <div class="p-2 fs-5"><i class="bi bi-linkedin"></i> <i class="bi bi-github"></i> Chachagua, Daniel</div>
+        <div class="p-2 fs-5"><i class="bi bi-linkedin"></i> <i class="bi bi-github"></i> Eguía, Guillermo</div>  
+      </div>
+      <div class="flex-column text-center text-white">
+        <div class="p-2 fw-bold fs-2">Alkemy Bootcamp</div>
+        <div class="p-2 fw-semibold fs-4">Django</div>
+        <div class="p-2 fw-semibold fs-4">Comision 1 Squad 3</div>
       </div>
       <div class="flex-column">
-        <div class="p-2">Alkemy Bootcamp</div>
-        <div class="p-2">Django</div>
-        <div class="p-2">Comision 1 Squad 3</div>
-      </div>
-      <div class="flex-column">
-        <div class="p-2"><i class="bi bi-linkedin"></i> <i class="bi bi-github"></i> Mendez,Eusebio</div>
-        <div class="p-2"><i class="bi bi-linkedin"></i> <i class="bi bi-github"></i> Paredes,Gustavo</div>
-        <div class="p-2"><i class="bi bi-linkedin"></i> <i class="bi bi-github"></i> Zelaya, Fernando</div>
+        <div class="p-2 fs-5"><i class="bi bi-linkedin"></i> <i class="bi bi-github"></i> Mendez,Eusebio</div>
+        <div class="p-2 fs-5"><i class="bi bi-linkedin"></i> <i class="bi bi-github"></i> Paredes,Gustavo</div>
+        <div class="p-2 fs-5"><i class="bi bi-linkedin"></i> <i class="bi bi-github"></i> Zelaya, Fernando</div>
       </div>
     </footer>
     <link rel="stylesheet" href="{% static 'js/bootstrap.min.js' %}"/>

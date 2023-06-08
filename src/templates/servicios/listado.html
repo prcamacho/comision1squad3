@@ -1,9 +1,5 @@
 {% extends 'base/base.html' %}
 
-{% if mensaje %}
-  {{mensaje}}
-{% endif %}
-
 {% block contenido %}
 
 {% if messages %}
@@ -15,7 +11,7 @@
 {% endif %}
 
 <div class="container-fluid">
-  <h1 class="display-4 text-center mt-4 mb-5">Lista de Servicios</h1>
+  <h1 class="fs-1 text-center m-4">Lista de Servicios</h1>
 
   <a href="{% url 'servicios:nuevo_servicio' %}" class="float-end m-2">
     <button type="button" class="btn btn-primary rounded-5">
@@ -23,21 +19,19 @@
     </button>
   </a>
 
-  <table class="table table-striped text-center">
-    <thead>
-      <tr class="table-secondary fs-4">
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Descripción</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
+  <table class="table table-hover text-center">
     <tbody>
+      <tr class="table-secondary fs-4  fw-semibold">
+        <td>ID</td>
+        <td>Nombre</td>
+        <td>Descripción</td>
+        <td>Acciones</td>
+      </tr>
       {% for servicio in servicios %}
         <tr class="align-text-bottom {% if servicio.activo %} table-success {% else %} table-danger {% endif %}">
-          <td class="fs-6 fw-normal">{{servicio.id}}</td>
-          <td class="fs-6 fw-normal col-2">{{servicio.nombre}}</td>
-          <td class="fs-6 fw-normal col-6">{{servicio.descripcion}}</td>
+          <td class="fs-6  fw-semibold">{{servicio.id}}</td>
+          <td class="fs-6  fw-semibold col-2">{{servicio.nombre}}</td>
+          <td class="fs-6  fw-semibold col-6">{{servicio.descripcion}}</td>
           <td>
             {% if servicio.activo %}
               <a href="{% url 'servicios:desactivar_servicio' servicio.id %}" class="btn btn-danger rounded-start-pill">

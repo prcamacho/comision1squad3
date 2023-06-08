@@ -11,9 +11,6 @@
   }
 </script>
 {% endblock javascript %}
-{% if mensaje %}
-{{mensaje}}
-{% endif %}
 
 {% block contenido %}
 
@@ -25,11 +22,11 @@
 </ul>
 {% endif %}
 <div class="container-fluid">
-<h1 class="m-4">Lista de Reservas</h1>
+<h1 class="fs-1 text-center m-4">Lista de Reservas</h1>
 
 <a href="{% url 'reservas:nueva_reserva' %}" class="float-end m-2"><button type="button" class="btn btn-primary text-aling-center rounded-5"><i class="bi bi-calendar4-week"></i> Nueva Reserva</button></a>
 
-<table class="table table-striped text-center">
+<table class="table table-striped text-center  fw fw-semibold">
     <tbody>
       <tr class="table-secondary fs-4 ">
         <td>ID</td>
@@ -44,14 +41,14 @@
       </tr>
         {% for reserva in reservas %}
     <tr class="align-text-bottom">
-        <th class="fs-6 fw-normal">{{reserva.id}}</th>
-        <th class="fs-6 fw-normal">{{reserva.fecha_creacion}}</th>
-        <th class="fs-6 fw-normal">{{reserva.fecha_reserva}}</th>
-        <th class="fs-6 fw-normal">{{reserva.cliente}}</th>
-        <th class="fs-6 fw-normal">{{reserva.responsable}}</th>
-        <th class="fs-6 fw-normal">{{reserva.empleado}}</th>
-        <th class="fs-6 fw-normal">{{reserva.servicio}}</th>
-        <th class="fs-6 fw-normal">{{reserva.precio}}</th>
+        <th class="fs-6  fw-semibold">{{reserva.id}}</th>
+        <th class="fs-6  fw-semibold">{{reserva.fecha_creacion}}</th>
+        <th class="fs-6  fw-semibold">{{reserva.fecha_reserva}}</th>
+        <th class="fs-6  fw-semibold">{{reserva.cliente}}</th>
+        <th class="fs-6  fw-semibold">{{reserva.responsable}}</th>
+        <th class="fs-6  fw-semibold">{{reserva.empleado}}</th>
+        <th class="fs-6  fw-semibold">{{reserva.servicio}}</th>
+        <th class="fs-6  fw-semibold">{{reserva.precio}}</th>
         <th>
             <a href="javascript:Confirmar({{reserva.id}});"><button type="button" class="btn btn-danger rounded-start-pill"><i class="bi bi-trash3-fill"></i> Eliminar</button></a>
             <a href="{% url 'reservas:modificar_reserva' reserva.id %}"><button type="button" class="btn btn-dark rounded-end-pill"><i class="bi bi-pencil-square"></i> Modificar</button></a>
