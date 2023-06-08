@@ -1,9 +1,5 @@
 {% extends 'base/base.html' %}
 
-{% if mensaje %}
-  {{mensaje}}
-{% endif %}
-
 {% block contenido %}
 
 {% if messages %}
@@ -15,7 +11,7 @@
 {% endif %}
 
 <div class="container-fluid">
-  <h1 class="display-4 text-center mt-4 mb-5">Lista de Empleados</h1>
+  <h1 class="fs-1 text-center m-4">Lista de Empleados</h1>
 
   <a href="{% url 'empleados:nuevo_empleado' %}" class="float-end m-2">
     <button type="button" class="btn btn-primary rounded-5">
@@ -23,23 +19,21 @@
     </button>
   </a>
 
-  <table class="table table-striped text-center">
-    <thead>
-      <tr class="table-secondary fs-4">
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Número Legajo</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
+  <table class="table table-hover text-center">
     <tbody>
+      <tr class="table-secondary fs-4 fw-semibold">
+        <td>ID</td>
+        <td>Nombre</td>
+        <td>Apellido</td>
+        <td>Número Legajo</td>
+        <td>Acciones</td>
+      </tr>
       {% for empleado in empleados %}
         <tr class="align-text-bottom {% if empleado.activo %} table-success {% else %} table-danger {% endif %}">
-          <td class="fs-6 fw-normal">{{empleado.id}}</td>
-          <td class="fs-6 fw-normal">{{empleado.nombre}}</td>
-          <td class="fs-6 fw-normal">{{empleado.apellido}}</td>
-          <td class="fs-6 fw-normal">{{empleado.numero_legajo}}</td>
+          <td class="fs-6 fw-normal fw-semibold">{{empleado.id}}</td>
+          <td class="fs-6 fw-normal fw-semibold">{{empleado.nombre}}</td>
+          <td class="fs-6 fw-normal fw-semibold">{{empleado.apellido}}</td>
+          <td class="fs-6 fw-normal fw-semibold">{{empleado.numero_legajo}}</td>
           <td>
             {% if empleado.activo %}
               <a href="{% url 'empleados:desactivar_empleado' empleado.id %}" class="btn btn-danger rounded-start-pill">
