@@ -1,41 +1,49 @@
 {% extends 'base/base.html' %}
 
-
-
 {% block contenido %}
 
-{% if messages %}
-<ul class="messages">
-  {% for message in messages %}
-  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-  {% endfor %}
-</ul>
-{% endif %}
+<div class="container-fluid">
+  <h1 class="fs-1 text-center m-4">Lista de Clientes</h1>
 
-<a href="{% url 'clientes:nuevo_cliente' %}">Nuevo Cliente</a>
-<h1>Lista de Clientes</h1>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Apellido</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for cliente in clientes %}
-        <tr>
-          <th scope="row">{{cliente.id}}</th>
-          <th>{{cliente.nombre}} </th>
-          <th>{{cliente.apellido}}</th>
-          <th>{%if cliente.activo %}
-            <a href="{% url 'clientes:desactivar_cliente' cliente.id %}">Desactivar</a>
+  <a href="{% url 'clientes:nuevo_cliente' %}" class="float-end m-2">
+    <button type="button" class="btn btn-primary rounded-5">
+      <i class="bi bi-person-fill-add"></i> Nuevo Cliente
+    </button>
+  </a>
+
+  <table class="table table-hover text-center">
+    <tbody>
+      <tr class="table-secondary fs-4 fw-semibold">
+        <td>ID</td>
+        <td>Nombre</td>
+        <td>Apellido</td>
+        <td>Acciones</td>
+      </tr>
+    
+      {% for cliente in clientes %}
+        <tr class="align-text-bottom {% if cliente.activo %} table-success {% else %} table-danger {% endif %}">
+          <td class="fs-6 fw-semibold">{{cliente.id}}</td>
+          <td class="fs-6 fw-semibold">{{cliente.nombre}}</td>
+          <td class="fs-6 fw-semibold">{{cliente.apellido}}</td>
+          <td>
+            {% if cliente.activo %}
+              <a href="{% url 'clientes:desactivar_cliente' cliente.id %}" class="btn btn-danger rounded-start-pill">
+                <i class="bi bi-person-fill-slash"></i> Desactivar
+              </a>
             {% else %}
-            <a href="{% url 'clientes:activar_cliente' cliente.id %}">Activar</a>
+              <a href="{% url 'clientes:activar_cliente' cliente.id %}" class="btn btn-success rounded-start-pill">
+                <i class="bi bi-person-fill-check"></i> Activar
+              </a>
             {% endif %}
-            <a href="{% url 'clientes:modificar_cliente' cliente.id %}">Modificar</a></th>
+            <a href="{% url 'clientes:modificar_cliente' cliente.id %}" class="btn btn-dark rounded-end-pill">
+              <i class="bi bi-pencil-square"></i> Modificar
+            </a>
+          </td>
         </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
 {% endblock contenido %}
+

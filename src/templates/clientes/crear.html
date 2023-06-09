@@ -1,9 +1,0 @@
-{% extends 'base/base.html' %}
-{% block contenido %}
-<form method="POST" action="" >
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar</button>
-</form>
-<a href="{% url 'clientes:listado_clientes' %}">Listado</a>
-{% endblock contenido %}
