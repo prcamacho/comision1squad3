@@ -1,9 +1,19 @@
 {% extends 'base/base.html' %}
+{% block javascript %}
+<script> 
+  //Cuadro de diálogo de confirmación en JavaScript
+  function aviso()
+  {
+    alert("Coordinador agregado con éxito!!!");
+  }
+</script>
+{% endblock javascript %}
+
 {% block contenido %}
 <div class="container-fluid" style="margin-top:30px">
     <div class="container-fluid card w-75 bg-primary-subtle">
     <h1 class="fs-1 text-center" style="margin-top:30px">Coordinador</h1>
-<form method="POST" action="" >
+<form method="POST" action=""  onSubmit="aviso()">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="botones btn btn-success">Guardar</button>
